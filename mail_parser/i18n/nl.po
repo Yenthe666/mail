@@ -23,7 +23,7 @@ msgstr ""
 #. module: mail_parser
 #: model_terms:ir.ui.view,arch_db:mail_parser.parser_message_wizard_form
 msgid "Cancel"
-msgstr ""
+msgstr "Annuleren"
 
 #. module: mail_parser
 #: model:ir.model.fields,field_description:mail_parser.field_mail_parser__create_uid
@@ -61,7 +61,7 @@ msgstr "E-mail discussie"
 #. module: mail_parser
 #: model_terms:ir.ui.view,arch_db:mail_parser.parser_message_wizard_form
 msgid "Extracted data from sample mail"
-msgstr ""
+msgstr "Geëxtraheerde gegevens vanuit voorbeeld e-mail"
 
 #. module: mail_parser
 #: model:ir.model.fields,field_description:mail_parser.field_mail_parser__field_id
@@ -100,7 +100,7 @@ msgstr "Laatst bijgewerkt op"
 #. module: mail_parser
 #: model:ir.model.fields,field_description:mail_parser.field_mail_alias__test_mail_body
 msgid "Mail Body"
-msgstr ""
+msgstr "Mail inhoud"
 
 #. module: mail_parser
 #: model:ir.actions.act_window,name:mail_parser.mail_parser_action
@@ -114,7 +114,7 @@ msgstr "Mail parser"
 #. module: mail_parser
 #: model_terms:ir.ui.view,arch_db:mail_parser.elexo_mail_alias_form
 msgid "Mail Parser Rules"
-msgstr ""
+msgstr "Mail parser regels"
 
 #. module: mail_parser
 #: model:ir.model.fields,field_description:mail_parser.field_mail_alias__mail_parser_ids
@@ -134,7 +134,7 @@ msgstr "Mail parser serveractie"
 #. module: mail_parser
 #: model:ir.model.fields,field_description:mail_parser.field_parser_message__parser_message
 msgid "Message"
-msgstr ""
+msgstr "Bericht"
 
 #. module: mail_parser
 #: model:ir.model.fields,field_description:mail_parser.field_mail_parser__models_id
@@ -157,7 +157,7 @@ msgstr "Naam..."
 #: model:ir.actions.act_window,name:mail_parser.parser_message_wizard_action
 #: model:ir.model,name:mail_parser.model_parser_message
 msgid "Parser Message"
-msgstr ""
+msgstr "Parser bericht"
 
 #. module: mail_parser
 #: model:ir.model.fields,field_description:mail_parser.field_mail_parser__regex_condition
@@ -167,22 +167,22 @@ msgstr "Regex conditie"
 #. module: mail_parser
 #: model_terms:ir.ui.view,arch_db:mail_parser.elexo_mail_alias_form
 msgid "Sample Mail Body"
-msgstr ""
+msgstr "Voorbeeld e-mailinhoud"
 
 #. module: mail_parser
 #: model:ir.model.fields,field_description:mail_parser.field_mail_parser__should_be_unique
 msgid "Should be Unique"
-msgstr ""
+msgstr "Moet uniek zijn"
 
 #. module: mail_parser
 #: model_terms:ir.ui.view,arch_db:mail_parser.elexo_mail_alias_form
 msgid "Test Mail Body"
-msgstr ""
+msgstr "Test mailinhoud"
 
 #. module: mail_parser
 #: model_terms:ir.ui.view,arch_db:mail_parser.elexo_mail_alias_form
 msgid "Test Parser"
-msgstr ""
+msgstr "Test parser"
 
 #. module: mail_parser
 #: model:ir.model.fields,help:mail_parser.field_mail_alias__mail_parser_server_action_id
