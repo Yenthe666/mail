@@ -1,0 +1,53 @@
+<odoo>
+    <!--  FSM task inherit form view -->
+    <record id="elexo_mail_alias_form" model="ir.ui.view">
+        <field name="name">mail.alias.inherit.view.tree</field>
+        <field name="model">mail.alias</field>
+        <field name="inherit_id" ref="mail.view_mail_alias_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='alias_defaults']" position="after">
+                <field name="mail_parser_server_action_id"/>
+            </xpath>
+            <xpath expr="//button[@name='open_parent_document']" position="after">
+                <button name="test_mail_parser_rule" string="Test Parser" type="object" icon="fa-cogs"/>
+            </xpath>
+            <xpath expr="//sheet" position="inside">
+                <notebook>
+                    <page string="Mail Parser Rules" name="mail_parser_rules">
+                        <separator string="Mail parser rules"/>
+                        <field name="mail_parser_ids">
+                            <tree>
+                                <field name="name"/>
+                                <field name="regex_condition"/>
+                                <field name="models_id" required="1"/>
+                                <field name="field_id" required="1"/>
+                                <field name="default_value"/>
+                                <field name="should_be_unique" widget="boolean_toggle"/>
+                            </tree>
+                            <form name="mail_parse_rules" string="Mail parser rules">
+                                <div class="oe_title">
+                                    <h1>
+                                        <field name="name" required="1" placeholder="Name..."/>
+                                    </h1>
+                                </div>
+                                <group name="mail_parser_details">
+                                    <field name="regex_condition"/>
+                                    <field name="models_id" required="1"/>
+                                    <field name="field_id" required="1" domain="[('model_id','=', models_id)]"/>
+                                    <field name="default_value" />
+                                    <field name="should_be_unique" widget="boolean_toggle"/>
+                                    <field name="mail_alias_id" invisible="1"/>
+                                </group>
+                            </form>
+                        </field>
+                    </page>
+                    <page string="Test Mail Body" name="test_mail_body">
+                        <separator string="Sample Mail Body"/>
+                        <field name="test_mail_body"/>
+                    </page>
+                </notebook>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,56 @@
+<odoo>
+    <record id="mail_parser_form" model="ir.ui.view">
+        <field name="name">mail.parser.form</field>
+        <field name="model">mail.parser</field>
+        <field name="arch" type="xml">
+            <form string="Mail Parser">
+                <sheet string="mail.parser">
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" required="1" placeholder="Name..."/>
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="regex_condition"/>
+                        <field name="models_id" required="1"/>
+                        <field name="field_id" required="1" domain="[('model_id','=', models_id)]"/>
+                        <field name="default_value" />
+                        <field name="mail_alias_id"/>
+                        <field name="should_be_unique" widget="boolean_toggle"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="mail_parser_tree" model="ir.ui.view">
+        <field name="name">mail.parser.tree</field>
+        <field name="model">mail.parser</field>
+        <field name="arch" type="xml">
+            <tree string="Mail Parser">
+                <field name="name" required="1" placeholder="Name..."/>
+                <field name="regex_condition" placeholder="First name : (\w+)"/>
+                <field name="models_id" />
+                <field name="field_id" domain="[('model_id','=', models_id)]"/>
+                <field name="default_value" />
+                <field name="mail_alias_id"/>
+                <field name="should_be_unique" widget="boolean_toggle"/>
+            </tree>
+        </field>
+    </record>
+    <record id="mail_parser_action" model="ir.actions.act_window">
+        <field name="name">Mail Parser</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">mail.parser</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem
+        id="mail_parser_menu_act"
+        name="Mail Parser"
+        parent="base.menu_email"
+        action="mail_parser_action"
+        sequence="99"
+        groups="base.group_no_one"
+    />
+
+</odoo>
