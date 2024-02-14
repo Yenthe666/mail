@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+mail_parser.access_mail_parser,access_mail_parser,mail_parser.model_mail_parser,base.group_user,1,1,1,1
+mail_parser_access_parser_message,access_parser_message,mail_parser.model_parser_message,base.group_user,1,1,1,1
