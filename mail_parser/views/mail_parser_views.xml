@@ -22,6 +22,7 @@
             </form>
         </field>
     </record>
+
     <record id="mail_parser_tree" model="ir.ui.view">
         <field name="name">mail.parser.tree</field>
         <field name="model">mail.parser</field>
@@ -37,20 +38,20 @@
             </tree>
         </field>
     </record>
+
     <record id="mail_parser_action" model="ir.actions.act_window">
         <field name="name">Mail Parser</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">mail.parser</field>
         <field name="view_mode">tree,form</field>
     </record>
-    <!-- This Menu Item must have a parent and an action -->
+
     <menuitem
         id="mail_parser_menu_act"
         name="Mail Parser"
         parent="base.menu_email"
         action="mail_parser_action"
         sequence="99"
-        groups="base.group_no_one"
-    />
+        groups="base.group_no_one"/>
 
 </odoo>

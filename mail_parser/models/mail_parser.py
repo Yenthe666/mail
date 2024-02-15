@@ -34,4 +34,6 @@ class MailParser(models.Model):
 
     should_be_unique = fields.Boolean(
         string="Should be Unique",
+        help="If this option is checked on we will search through all records on this model to see if a record "
+        "with this value already exists. If it does we do not create a new record but keep/reuse the existing record."
     )
