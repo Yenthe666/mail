@@ -2,7 +2,7 @@
 
 {
     "name": "Mail Parser",
-    "version": "16.0.1.0.6",
+    "version": "17.0.1.0.0",
     "summary": """
         Automatically read/parse emails from aliases and convert data
         """,

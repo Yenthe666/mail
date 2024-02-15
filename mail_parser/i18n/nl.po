@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0+e\n"
+"Project-Id-Version: Odoo Server 17.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-13 11:00+0000\n"
-"PO-Revision-Date: 2024-02-13 11:00+0000\n"
+"POT-Creation-Date: 2024-02-15 11:59+0000\n"
+"PO-Revision-Date: 2024-02-15 11:59+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -80,10 +80,12 @@ msgid "ID"
 msgstr ""
 
 #. module: mail_parser
-#: model:ir.model.fields,field_description:mail_parser.field_mail_parser____last_update
-#: model:ir.model.fields,field_description:mail_parser.field_parser_message____last_update
-msgid "Last Modified on"
-msgstr "Laatst gewijzigd op"
+#: model:ir.model.fields,help:mail_parser.field_mail_parser__should_be_unique
+msgid ""
+"If this option is checked on we will search through all records on this "
+"model to see if a record with this value already exists. If it does we do "
+"not create a new record but keep/reuse the existing record."
+msgstr ""
 
 #. module: mail_parser
 #: model:ir.model.fields,field_description:mail_parser.field_mail_parser__write_uid

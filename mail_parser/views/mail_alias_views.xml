@@ -3,7 +3,7 @@
     <record id="elexo_mail_alias_form" model="ir.ui.view">
         <field name="name">mail.alias.inherit.view.tree</field>
         <field name="model">mail.alias</field>
-        <field name="inherit_id" ref="mail.view_mail_alias_form"/>
+        <field name="inherit_id" ref="mail.mail_alias_view_form"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='alias_defaults']" position="after">
                 <field name="mail_parser_server_action_id"/>
