@@ -20,8 +20,10 @@ class MailThread(models.AbstractModel):
             if mail_parser_by_model:
                 model_vals = {}
                 domain_vals = {}
-                
-                for model_id, parser_id in mail_parser_by_model.items():    
+
+                for model_id, parser_id in mail_parser_by_model.items():
+                    model_vals = {}
+                    domain_vals = {}
                     for parser in parser_id:
                         email_body = str(message)
                         tags_to_replace = ["<b>", "</b>"]
@@ -41,12 +43,17 @@ class MailThread(models.AbstractModel):
                             else:
                                 continue  # no default value set on this field
 
-                if model_vals.get('email', False) and message_dict.get('email_from', False):
-                    message_dict.update({
-                        'email_from': model_vals.get('email', False)
-                    })
+                # mail.thread.message_new (base) unconditionally overwrites the
+                # primary email field with msg_dict['email_from'] *after* applying
+                # custom_values, so we must update message_dict here to make the
+                # parsed address survive. The field name varies by model (e.g.
+                # 'email_from' on crm.lead, 'email' elsewhere), so check both.
+                parsed_email = model_vals.get('email_from') or model_vals.get('email')
+                if parsed_email and message_dict.get('email_from'):
+                    message_dict['email_from'] = parsed_email
                 custom_values.update(model_vals)
                 return custom_values, message_dict, domain_vals
+        return custom_values, message_dict, {}
 
 
     def _prepared_domain_from_dict(self, domain_vals):
@@ -94,7 +101,7 @@ class MailThread(models.AbstractModel):
                 custom_values = custom_parser_value
                 message_dict = custom_message_dict
                 domain = self._prepared_domain_from_dict(domain_vals)
-                existing_record_id = Model.search(domain, limit=1)
+                existing_record_id = Model.search(domain, limit=1) if domain else Model.browse()
                 Model = Model.with_context(
                             custom_parser_value=custom_parser_value,
                             alias_id=alias,
@@ -178,5 +185,11 @@ class MailThread(models.AbstractModel):
             alias_id = context.get('alias_id')
             action_server = alias_id.mail_parser_server_action_id
             if action_server:
+                model_name = message_new._name.replace('.', '_')
+                data = {
+                    'active_model': message_new._name,
+                    'active_id': message_new.id,
+                    model_name: message_new.id,
+                }
                 action_server.sudo().with_context(data).run()
         return message_new
