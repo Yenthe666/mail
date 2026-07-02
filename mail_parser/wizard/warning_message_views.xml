@@ -6,7 +6,7 @@
         <field name="arch" type="xml">
             <form>
                 <div>
-                <h3>Extracted data from sample mail</h3>
+                    <h3>Extracted data from sample mail</h3>
                 </div>
                 <field name="parser_message" readonly="1" force_save="1"/>
                 <footer>
@@ -23,5 +23,4 @@
         <field name="target">new</field>
         <field name="context">{}</field>
     </record>
-
 </odoo>

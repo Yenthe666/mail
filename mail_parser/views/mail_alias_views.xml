@@ -1,9 +1,8 @@
 <odoo>
-    <!--  FSM task inherit form view -->
     <record id="elexo_mail_alias_form" model="ir.ui.view">
         <field name="name">mail.alias.inherit.view.tree</field>
         <field name="model">mail.alias</field>
-        <field name="inherit_id" ref="mail.view_mail_alias_form"/>
+        <field name="inherit_id" ref="mail.mail_alias_view_form"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='alias_defaults']" position="after">
                 <field name="mail_parser_server_action_id"/>
@@ -16,14 +15,14 @@
                     <page string="Mail Parser Rules" name="mail_parser_rules">
                         <separator string="Mail parser rules"/>
                         <field name="mail_parser_ids">
-                            <tree>
+                            <list>
                                 <field name="name"/>
                                 <field name="regex_condition"/>
                                 <field name="models_id" required="1"/>
                                 <field name="field_id" required="1"/>
                                 <field name="default_value"/>
                                 <field name="should_be_unique" widget="boolean_toggle"/>
-                            </tree>
+                            </list>
                             <form name="mail_parse_rules" string="Mail parser rules">
                                 <div class="oe_title">
                                     <h1>
@@ -34,7 +33,7 @@
                                     <field name="regex_condition"/>
                                     <field name="models_id" required="1"/>
                                     <field name="field_id" required="1" domain="[('model_id','=', models_id)]"/>
-                                    <field name="default_value" />
+                                    <field name="default_value"/>
                                     <field name="should_be_unique" widget="boolean_toggle"/>
                                     <field name="mail_alias_id" invisible="1"/>
                                 </group>
@@ -49,5 +48,4 @@
             </xpath>
         </field>
     </record>
-
 </odoo>
